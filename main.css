@@ -6,6 +6,12 @@ html, body {
     height: 100%;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .progress-container {
     position: relative;
     width: 200px;
@@ -37,4 +43,16 @@ html, body {
     font-size: 24px;
     font-family: Arial, sans-serif;
     color: #333;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+}
+
+.percent {
+    width: 17%;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 5px;
 }
