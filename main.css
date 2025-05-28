@@ -5,7 +5,3 @@ html, body {
     position: relative;
     height: 100%;
 }
-
-.progress-ring__circle {
-    stroke-dasharray: 50 10;
-}
