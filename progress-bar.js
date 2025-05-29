@@ -234,33 +234,38 @@ class ProgressBar {
 
     setupEventListeners() {
         this.input.addEventListener("input", () => {
-            let value = input.value;
+            let value = this.input.value;
 
             if (value < 0) {
                 value = 0;
-                input.value = 0;
+                this.input.value = 0;
             } else if (value > 100) {
                 value = 100;
-                input.value = 100;
+                this.input.value = 100;
             }
 
-            setProgress(value);
+            this.setProgress(value);
         })
 
         this.animateToggle.addEventListener("change", () => {
             if (animateToggle.checked) {
-                circle.classList.add("animated");
+                this.circle.classList.add("animated");
             } else {
-                circle.classList.remove("animated");
+                this.circle.classList.remove("animated");
             }
         })
 
         this.hideToggle.addEventListener("change", () => {
             if (hideToggle.checked) {
-                progressContainer.classList.add("hidden");
+                this.progressContainer.classList.add("hidden");
             } else {
-                progressContainer.classList.remove("hidden");
+                this.progressContainer.classList.remove("hidden");
             }
         })
+    }
+
+    setProgress(percent) {
+        const offset = circumference - (percent / 100) * circumference;
+        circle.style.strokeDashoffset = offset;
     }
 }
