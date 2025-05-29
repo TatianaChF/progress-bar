@@ -1,0 +1,61 @@
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+}
+
+.progress-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+}
+
+.progress-bg {
+    fill: none;
+    stroke: #f0f0f0;
+    stroke-width: 10;
+}
+
+.progress-bar {
+    fill: none;
+    stroke: blue;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.percent {
+    width: 17%;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 5px;
+}

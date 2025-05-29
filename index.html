@@ -7,6 +7,33 @@
     <title>Progress Bar</title>
 </head>
 <body>
-<p>Progress Bar page</p>
+<div class="container">
+    <div class="progress-container">
+        <svg width="200"
+             height="200"
+             viewBox="0 0 200 200">
+            <circle class="progress-bg"
+                    cx="100"
+                    cy="100"
+                    r="90" />
+            <circle class="progress-bar"
+                    cx="100"
+                    cy="100"
+                    r="90"
+                    id="progress" />
+        </svg>
+    </div>
+    <div class="input-container">
+        <input type="number"
+               class="percent"
+               id="percent"
+               value="0"
+               name="percent" />
+        <label for="percent">
+            Value
+        </label>
+    </div>
+</div>
+<script src="index.js"></script>
 </body>
 </html>
