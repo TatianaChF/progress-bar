@@ -9,7 +9,7 @@ const progressContainer = document.getElementById("progress-container");
 circle.style.strokeDasharray = `${circumference}`;
 circle.style.strokeDashoffset = circumference;
 
-input.addEventListener("change", () => {
+input.addEventListener("input", () => {
     let value = input.value;
 
     if (value < 0) {
