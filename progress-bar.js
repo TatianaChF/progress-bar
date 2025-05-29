@@ -227,6 +227,7 @@ class ProgressBar {
                     .container {
                         flex-direction: column;
                         justify-content: space-between;
+                        gap: 30px;
                     }
                 }
         `;
