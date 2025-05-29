@@ -7,7 +7,17 @@ circle.style.strokeDasharray = `${circumference}`;
 circle.style.strokeDashoffset = circumference;
 
 input.addEventListener("change", () => {
-    setProgress(input.value);
+    let value = input.value;
+
+    if (value < 0) {
+        value = 0;
+        input.value = 0;
+    } else if (value > 100) {
+        value = 100;
+        input.value = 100;
+    }
+
+    setProgress(value);
 })
 
 function setProgress(percent) {
