@@ -32,7 +32,7 @@ animateToggle.addEventListener("change", () => {
 })
 
 hideToggle.addEventListener("change", () => {
-    if (animateToggle.checked) {
+    if (hideToggle.checked) {
         progressContainer.classList.add("hidden");
     } else {
         progressContainer.classList.remove("hidden");
