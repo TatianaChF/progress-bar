@@ -65,6 +65,15 @@ class ProgressBar {
                 </div>
             </div>
         </div>
-    `
+        `;
+
+        const circle = document.getElementById("progress");
+        const input = document.getElementById("percent");
+        const animateToggle = document.getElementById("animate-toggle");
+        const hideToggle = document.getElementById("hide-toggle");
+        const progressContainer = document.getElementById("progress-container");
+        const radius = circle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+
     }
 }
