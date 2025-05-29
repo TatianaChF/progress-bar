@@ -1,7 +1,8 @@
-const circle = document.getElementById('progress');
+const circle = document.getElementById("progress");
 const radius = circle.r.baseVal.value;
 const circumference = 2 * Math.PI * radius;
 const input = document.getElementById("percent");
+const animateToggle = document.getElementById("animate-toggle");
 
 circle.style.strokeDasharray = `${circumference}`;
 circle.style.strokeDashoffset = circumference;
