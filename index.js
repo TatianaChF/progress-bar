@@ -4,6 +4,7 @@ const circumference = 2 * Math.PI * radius;
 const input = document.getElementById("percent");
 const animateToggle = document.getElementById("animate-toggle");
 const hideToggle = document.getElementById("hide-toggle");
+const progressContainer = document.getElementById("progress-container");
 
 circle.style.strokeDasharray = `${circumference}`;
 circle.style.strokeDashoffset = circumference;
@@ -27,6 +28,14 @@ animateToggle.addEventListener("change", () => {
         circle.classList.add("animated");
     } else {
         circle.classList.remove("animated");
+    }
+})
+
+hideToggle.addEventListener("change", () => {
+    if (animateToggle.checked) {
+        progressContainer.classList.add("hidden");
+    } else {
+        progressContainer.classList.remove("hidden");
     }
 })
 
