@@ -55,10 +55,19 @@ html, body {
 }
 
 .percent {
-    width: 45px;
+    width: 40px;
     border-radius: 20px;
     border: 1px solid black;
     padding: 5px;
+    text-align: center;
+
+    -moz-appearance: textfield;
+}
+
+.percent::-webkit-outer-spin-button,
+.percent::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .switch-container {
@@ -70,7 +79,7 @@ html, body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 55px;
     height: 34px;
 }
 
@@ -95,10 +104,10 @@ html, body {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 21px;
+    width: 21px;
     left: 4px;
-    bottom: 4px;
+    bottom: 6px;
     background-color: white;
     transition: .4s;
     border-radius: 50%;
@@ -113,7 +122,6 @@ input:checked + .slider:before {
 }
 
 .switch-label {
-    font-family: Arial, sans-serif;
     font-size: 16px;
 }
 
