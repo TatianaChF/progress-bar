@@ -75,8 +75,160 @@ class ProgressBar {
         this.radius = circle.r.baseVal.value;
         this.circumference = 2 * Math.PI * radius;
 
-        this.circle.style.strokeDasharray = `${circumference}`;
-        this.circle.style.strokeDashoffset = circumference;
+        this.circle.style.strokeDasharray = `${this.circumference}`;
+        this.circle.style.strokeDashoffset = this.circumference;
 
+        this.applyStyle();
+
+    }
+
+    applyStyle() {
+        const style = document.createElement("style");
+            style.textContent = `
+                .container {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 90px;
+                }
+                
+                #progress-container {
+                    position: relative;
+                    width: 170px;
+                    height: 170px;
+                    margin: 50px auto;
+                    transition: all 0.5s ease;
+                }
+                
+                .progress-bg {
+                    fill: none;
+                    stroke: #f0f0f0;
+                    stroke-width: 12;
+                }
+    
+                .progress-bar {
+                    fill: none;
+                    stroke: blue;
+                    stroke-width: 12;
+                    stroke-linecap: butt;
+                    transform: rotate(-90deg);
+                    transform-origin: 50% 50%;
+                    transition: stroke-dashoffset 0.5s ease;
+                }
+                
+                .input-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+                }
+    
+                .percent {
+                    width: 42px;
+                    border-radius: 20px;
+                    border: 1px solid black;
+                    padding: 5px;
+                    text-align: center;
+                    font-size: 18px;
+    
+                    -moz-appearance: textfield;
+                }
+    
+                .percent::-webkit-outer-spin-button,
+                .percent::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+    
+                .switch-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+                }
+    
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 58px;
+                    height: 34px;
+                }
+    
+                .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+    
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #e3e3ed;
+                    transition: .4s;
+                    border-radius: 34px;
+                }
+    
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 27px;
+                    width: 27px;
+                    left: 3px;
+                    bottom: 4px;
+                    background-color: white;
+                    transition: .4s;
+                    border-radius: 50%;
+                }
+    
+                input:checked + .slider {
+                    background-color: blue;
+                }
+    
+                input:checked + .slider:before {
+                    transform: translateX(26px);
+                }
+    
+                .switch-label {
+                    font-size: 16px;
+                }
+    
+                .settings-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+    
+                .hidden {
+                    opacity: 0;
+                    pointer-events: none;
+                    transform: scale(0.9);
+                    height: 0;
+                    overflow: hidden;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                @keyframes rotate {
+                    from {
+                        transform: rotate(-90deg);
+                    }
+                    to {
+                        transform: rotate(270deg);
+                    }
+                }
+                
+                .animated {
+                    animation: rotate 2s linear infinite;
+                }
+                
+                @media (max-width: 480px) {
+                    .container {
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
+                }
+        `
     }
 }
