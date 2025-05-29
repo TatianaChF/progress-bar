@@ -67,13 +67,16 @@ class ProgressBar {
         </div>
         `;
 
-        const circle = document.getElementById("progress");
-        const input = document.getElementById("percent");
-        const animateToggle = document.getElementById("animate-toggle");
-        const hideToggle = document.getElementById("hide-toggle");
-        const progressContainer = document.getElementById("progress-container");
-        const radius = circle.r.baseVal.value;
-        const circumference = 2 * Math.PI * radius;
+        this.circle = document.getElementById("progress");
+        this.input = document.getElementById("percent");
+        this.animateToggle = document.getElementById("animate-toggle");
+        this.hideToggle = document.getElementById("hide-toggle");
+        this.progressContainer = document.getElementById("progress-container");
+        this.radius = circle.r.baseVal.value;
+        this.circumference = 2 * Math.PI * radius;
+
+        this.circle.style.strokeDasharray = `${circumference}`;
+        this.circle.style.strokeDashoffset = circumference;
 
     }
 }
