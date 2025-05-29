@@ -25,14 +25,14 @@ html, body {
 .progress-bg {
     fill: none;
     stroke: #f0f0f0;
-    stroke-width: 10;
+    stroke-width: 12;
 }
 
 .progress-bar {
     fill: none;
     stroke: blue;
-    stroke-width: 10;
-    stroke-linecap: round;
+    stroke-width: 12;
+    stroke-linecap: butt;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
     transition: stroke-dashoffset 0.5s ease;
