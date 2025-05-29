@@ -72,8 +72,8 @@ class ProgressBar {
         this.animateToggle = document.getElementById("animate-toggle");
         this.hideToggle = document.getElementById("hide-toggle");
         this.progressContainer = document.getElementById("progress-container");
-        this.radius = circle.r.baseVal.value;
-        this.circumference = 2 * Math.PI * radius;
+        this.radius = this.circle.r.baseVal.value;
+        this.circumference = 2 * Math.PI * this.radius;
 
         this.circle.style.strokeDasharray = `${this.circumference}`;
         this.circle.style.strokeDashoffset = this.circumference;
@@ -248,24 +248,45 @@ class ProgressBar {
         })
 
         this.animateToggle.addEventListener("change", () => {
-            if (animateToggle.checked) {
-                this.circle.classList.add("animated");
+            if (this.animateToggle.checked) {
+                this.startAnimation();
             } else {
-                this.circle.classList.remove("animated");
+                this.stopAnimation();
             }
         })
 
         this.hideToggle.addEventListener("change", () => {
-            if (hideToggle.checked) {
-                this.progressContainer.classList.add("hidden");
+            if (this.hideToggle.checked) {
+                this.show();
             } else {
-                this.progressContainer.classList.remove("hidden");
+                this.hide();
             }
         })
     }
 
     setProgress(percent) {
-        const offset = circumference - (percent / 100) * circumference;
-        circle.style.strokeDashoffset = offset;
+        const offset = this.circumference - (percent / 100) * this.circumference;
+        this.circle.style.strokeDashoffset = offset;
+        this.input.value = percent;
+    }
+
+    startAnimation() {
+        this.circle.classList.add("animated");
+        this.animateToggle.checked = true;
+    }
+
+    stopAnimation() {
+        this.circle.classList.remove("animated");
+        this.animateToggle.checked = false;
+    }
+
+    show() {
+        this.progressContainer.classList.add("hidden");
+        this.hideToggle.checked = false;
+    }
+
+    hide() {
+        this.progressContainer.classList.remove("hidden");
+        this.hideToggle.checked = true;
     }
 }
