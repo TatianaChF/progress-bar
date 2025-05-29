@@ -3,6 +3,7 @@ const radius = circle.r.baseVal.value;
 const circumference = 2 * Math.PI * radius;
 const input = document.getElementById("percent");
 const animateToggle = document.getElementById("animate-toggle");
+const hideToggle = document.getElementById("hide-toggle");
 
 circle.style.strokeDasharray = `${circumference}`;
 circle.style.strokeDashoffset = circumference;
