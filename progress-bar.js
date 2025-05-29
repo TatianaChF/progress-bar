@@ -61,7 +61,7 @@ class ProgressBar {
                                ${this.config.hidden ? 'checked' : ''} />
                         <span class="slider"></span>
                     </label>
-                    <span class="switch-label">Hide</span>
+                    <span>Hide</span>
                 </div>
             </div>
         </div>
@@ -229,7 +229,8 @@ class ProgressBar {
                         justify-content: space-between;
                     }
                 }
-        `
+        `;
+        this.container.appendChild(style);
     }
 
     setupEventListeners() {
@@ -257,9 +258,9 @@ class ProgressBar {
 
         this.hideToggle.addEventListener("change", () => {
             if (this.hideToggle.checked) {
-                this.show();
-            } else {
                 this.hide();
+            } else {
+                this.show();
             }
         })
     }
@@ -281,12 +282,12 @@ class ProgressBar {
     }
 
     show() {
-        this.progressContainer.classList.add("hidden");
+        this.progressContainer.classList.remove("hidden");
         this.hideToggle.checked = false;
     }
 
     hide() {
-        this.progressContainer.classList.remove("hidden");
+        this.progressContainer.classList.add("hidden");
         this.hideToggle.checked = true;
     }
 }
