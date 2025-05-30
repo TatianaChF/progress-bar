@@ -153,7 +153,7 @@ class ProgressBar {
                 }
     
                 .percent {
-                    width: 42px;
+                    width: 55px;
                     border-radius: 20px;
                     border: 1px solid black;
                     padding: 5px;
