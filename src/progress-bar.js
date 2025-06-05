@@ -33,9 +33,9 @@ class ProgressBar {
      * - Навешивание обработчиков событий
      */
     init() {
-        this.container.innerHTML = `
-            
-        `;
+        fetch("progress-bar.html")
+            .then((response) => response.text())
+            .then((html) => this.container.innerHTML = html);
 
         // Получение ссылок на DOM-элементы
         this.circle = document.getElementById("progress");
@@ -52,22 +52,8 @@ class ProgressBar {
         this.circle.style.strokeDasharray = `${this.circumference}`;
         this.circle.style.strokeDashoffset = this.circumference;
 
-        // Применение кастомных стилей
-        this.applyStyle();
-
         // Настройка обработчиков событий
         this.setupEventListeners();
-    }
-
-    /**
-     * Динамическое создание и применение стилей компонента
-     */
-    applyStyle() {
-        const style = document.createElement("style");
-            style.textContent = `
-                
-        `;
-        this.container.appendChild(style);
     }
 
     /**

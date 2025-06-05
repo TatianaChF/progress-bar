@@ -36,7 +36,7 @@ progress-bar/
 ├── index.html         # Основной HTML-файл
 ├── main.css           # Глобальные стили
 ├── progress-bar.js    # Класс ProgressBar (основная логика)
-└── index.js           # Инициализация приложения
+└── main.js           # Инициализация приложения
 ```
 
 ## Программный API
@@ -115,9 +115,11 @@ class ProgressBar {
 ```
 ## Как использовать блок
 1. Включите необходимые файлы в ваш HTML:
+
 ```html
-<link rel="stylesheet" href="main.css">
-<script src="progress-bar.js"></script>
+
+<link rel="stylesheet" href="src/main.css">
+<script src="src/progress-bar.js"></script>
 ```
 2. Добавьте контейнер для прогресс-бара:
 ```html
