@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="progress-bar.css">
+    <title></title>
 </head>
 <body>
 <div class="container">
     <!-- Контейнер для SVG прогресс-бара -->
     <div id="progress-container">
-    <svg width="${this.config.size}"
-         height="${this.config.size}"
-         viewBox="0 0 ${this.config.size} ${this.config.size}">
+    <svg width="170"
+         height="170"
+         viewBox="0 0 170 170">
         <circle class="progress-bg"
-                cx="${this.config.size/2}"
-                cy="${this.config.size/2}"
-                r="${this.config.size/2 - this.config.strokeWidth}" />
+                cx="85"
+                cy="85"
+                r="75" />
         <circle class="progress-bar"
-                cx="${this.config.size/2}"
-                cy="${this.config.size/2}"
-                r="${this.config.size/2 - this.config.strokeWidth}"
+                cx="85"
+                cy="85"
+                r="75"
                 id="progress" />
     </svg>
 </div>
@@ -29,7 +29,7 @@
         <input type="number"
                class="percent"
                id="percent"
-               value="${this.config.value}"
+               value="0"
                name="percent"
                min="0"
                max="100" />
