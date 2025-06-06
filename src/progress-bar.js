@@ -13,9 +13,6 @@ export class ProgressBar {
      */
     constructor(container, options = {}) {
         this.defaults = {
-            size: 170,
-            strokeWidth: 10,
-            value: 0,
             animated: false,
             hidden: false
         };
