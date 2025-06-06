@@ -1,8 +1,11 @@
+import template from './progress-bar.html?raw';
+import "./progress.css";
+
 /**
  * Класс ProgressBar - создает интерактивный круговой прогресс-бар
  * с возможностью управления через UI или программный API.
  */
-class ProgressBar {
+export class ProgressBar {
     /**
      * Конструктор класса
      * @param {HTMLElement} container - Контейнер для размещения прогресс-бара
@@ -33,9 +36,7 @@ class ProgressBar {
      * - Навешивание обработчиков событий
      */
     init() {
-        fetch("progress-bar.html")
-            .then((response) => response.text())
-            .then((html) => this.container.innerHTML = html);
+        this.container.innerHTML = template;
 
         // Получение ссылок на DOM-элементы
         this.circle = document.getElementById("progress");

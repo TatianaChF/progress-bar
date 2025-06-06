@@ -1,3 +1,5 @@
+import {ProgressBar} from './progress-bar.js';
+
 /**
  * Инициализация прогресс-бара
  *
