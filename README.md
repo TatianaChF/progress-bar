@@ -119,7 +119,7 @@ class ProgressBar {
 ```html
 
 <link rel="stylesheet" href="style.css">
-<script src="src/progress-bar.js"></script>
+<script src="src/components/progress-bar.js"></script>
 ```
 2. Добавьте контейнер для прогресс-бара:
 ```html

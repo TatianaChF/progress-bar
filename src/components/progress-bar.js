@@ -17,8 +17,6 @@ export class ProgressBar {
             hidden: false
         };
 
-        // Объединение пользовательских настроек с настройками по умолчанию
-        this.config = {...this.defaults, ...options};
         this.container = container;
 
         // Инициализация компонента

@@ -1,4 +1,4 @@
-import {ProgressBar} from './progress-bar.js';
+import {ProgressBar} from './components/progress-bar.js';
 
 /**
  * Инициализация прогресс-бара
