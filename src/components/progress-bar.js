@@ -19,6 +19,11 @@ export class ProgressBar {
 
         this.container = container;
 
+        // Привязка контекста для обработчиков
+        this.handleInput = this.handleInput.bind(this);
+        this.handleAnimateToggle = this.handleAnimateToggle.bind(this);
+        this.handleHideToggle = this.handleHideToggle.bind(this);
+
         // Инициализация компонента
         this.init();
     }
@@ -57,37 +62,46 @@ export class ProgressBar {
      */
     setupEventListeners() {
         // Обработчик изменения значения в поле ввода
-        this.input.addEventListener("input", () => {
-            let value = this.input.value;
-
-            if (value < 0) {
-                value = 0;
-                this.input.value = 0;
-            } else if (value > 100) {
-                value = 100;
-                this.input.value = 100;
-            }
-
-            this.setProgress(value);
-        })
+        this.input.addEventListener("input", this.handleInput);
 
         // Обработчик переключения анимации
-        this.animateToggle.addEventListener("change", () => {
-            if (this.animateToggle.checked) {
-                this.startAnimation();
-            } else {
-                this.stopAnimation();
-            }
-        })
+        this.animateToggle.addEventListener("change", this.handleAnimateToggle)
 
         // Обработчик переключения видимости
-        this.hideToggle.addEventListener("change", () => {
-            if (this.hideToggle.checked) {
-                this.hide();
-            } else {
-                this.show();
-            }
-        })
+        this.hideToggle.addEventListener("change", this.handleHideToggle);
+    }
+
+    // Метод обработчик для ввода значения
+    handleInput() {
+        let value = this.input.value;
+
+        if (value < 0) {
+            value = 0;
+            this.input.value = 0;
+        } else if (value > 100) {
+            value = 100;
+            this.input.value = 100;
+        }
+
+        this.setProgress(value);
+    }
+
+    // Метод обработчик для значения анимации компонента
+    handleAnimateToggle() {
+        if (this.animateToggle.checked) {
+            this.startAnimation();
+        } else {
+            this.stopAnimation();
+        }
+    }
+
+    // Метод обработчик значения видимости компонента
+    handleHideToggle() {
+        if (this.hideToggle.checked) {
+            this.hide();
+        } else {
+            this.show();
+        }
     }
 
     /**
@@ -130,5 +144,14 @@ export class ProgressBar {
     hide() {
         this.progressContainer.classList.add("hidden");
         this.hideToggle.checked = true;
+    }
+
+    /**
+     * Метод для очистки
+     */
+    destroy() {
+        this.input.removeEventListener("input", this.handleInput);
+        this.animateToggle.removeEventListener("change", this.handleAnimateToggle);
+        this.hideToggle.removeEventListener("change", this.handleHideToggle);
     }
 }
