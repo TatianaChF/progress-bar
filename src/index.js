@@ -17,3 +17,7 @@ const progressBar = new ProgressBar(document.getElementById('progress-bar'), {
     animated: false,
     hidden: false
 });
+
+window.addEventListener('beforeunload', () => {
+    progressBar.destroy();
+})
