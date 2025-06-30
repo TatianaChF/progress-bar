@@ -56,7 +56,10 @@ export class ProgressBar {
         this.circle.style.strokeDashoffset = this.circumference;
 
         // Применение начальных значений
-        this.setProgress(this.config.value);
+        if (this.config.value < 0) this.setProgress(0);
+        else if (this.config.value > 100) this.setProgress(100);
+        else this.setProgress(this.config.value);
+
         this.config.animated ? this.startAnimation() : this.stopAnimation();
         this.config.hidden ? this.hide() : this.show();
 
