@@ -13,10 +13,12 @@ export class ProgressBar {
      */
     constructor(container, options = {}) {
         this.defaults = {
+            value: 0,
             animated: false,
             hidden: false
         };
 
+        this.config = {...this.defaults, ...options};
         this.container = container;
 
         // Привязка контекста для обработчиков
@@ -52,6 +54,11 @@ export class ProgressBar {
         // Инициализация стилей прогресс-бара
         this.circle.style.strokeDasharray = `${this.circumference}`;
         this.circle.style.strokeDashoffset = this.circumference;
+
+        // Применение начальных значений
+        this.setProgress(this.config.value);
+        this.config.animated ? this.startAnimation() : this.stopAnimation();
+        this.config.hidden ? this.hide() : this.show();
 
         // Настройка обработчиков событий
         this.setupEventListeners();
